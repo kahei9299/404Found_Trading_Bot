@@ -62,6 +62,60 @@ def get_balance() -> dict:
     return resp.json()
 
 
+def get_pending_count() -> dict:
+    params = {"timestamp": _get_timestamp()}
+    signature = _sign(params)
+    resp = requests.get(
+        f"{BASE_URL}/v3/pending_count",
+        params=params,
+        headers=_headers(signature),
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def query_order(order_id: str = None, pair: str = None, pending_only: bool = False) -> dict:
+    params = {"timestamp": _get_timestamp()}
+    if order_id:
+        params["order_id"] = order_id
+    else:
+        if pair:
+            params["pair"] = pair
+        if pending_only:
+            params["pending_only"] = "true"
+
+    signature = _sign(params)
+    headers = _headers(signature)
+    headers["Content-Type"] = "application/x-www-form-urlencoded"
+
+    resp = requests.post(
+        f"{BASE_URL}/v3/query_order",
+        data=params,
+        headers=headers,
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def cancel_order(order_id: str, pair: str) -> dict:
+    params = {
+        "order_id": order_id,
+        "pair": pair,
+        "timestamp": _get_timestamp(),
+    }
+    signature = _sign(params)
+    headers = _headers(signature)
+    headers["Content-Type"] = "application/x-www-form-urlencoded"
+
+    resp = requests.post(
+        f"{BASE_URL}/v3/cancel_order",
+        data=params,
+        headers=headers,
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
 def place_order(pair: str, side: str, order_type: str, quantity: str, price: str = None) -> dict:
     params = {
         "pair": pair,
