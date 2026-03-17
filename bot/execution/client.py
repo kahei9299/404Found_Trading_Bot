@@ -1,0 +1,86 @@
+import hashlib
+import hmac
+import time
+import requests
+from bot.config.settings import API_KEY, SECRET_KEY, BASE_URL
+
+
+def _get_timestamp():
+    """Get current timestamp in milliseconds."""
+    return str(int(time.time() * 1000))
+
+
+def _sign(params: dict) -> str:
+    """Generate HMAC SHA256 signature from sorted params."""
+    sorted_params = sorted(params.items())
+    query_string = "&".join(f"{k}={v}" for k, v in sorted_params)
+    signature = hmac.new(
+        SECRET_KEY.encode("utf-8"),
+        query_string.encode("utf-8"),
+        hashlib.sha256,
+    ).hexdigest()
+    return signature
+
+
+def _headers(signature: str) -> dict:
+    return {
+        "RST-API-KEY": API_KEY,
+        "MSG-SIGNATURE": signature,
+    }
+
+
+def get_server_time() -> dict:
+    resp = requests.get(f"{BASE_URL}/v3/serverTime")
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_exchange_info() -> dict:
+    resp = requests.get(f"{BASE_URL}/v3/exchangeInfo")
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_ticker(pair: str = None) -> dict:
+    params = {"timestamp": _get_timestamp()}
+    if pair:
+        params["pair"] = pair
+    resp = requests.get(f"{BASE_URL}/v3/ticker", params=params)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_balance() -> dict:
+    params = {"timestamp": _get_timestamp()}
+    signature = _sign(params)
+    resp = requests.get(
+        f"{BASE_URL}/v3/balance",
+        params=params,
+        headers=_headers(signature),
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def place_order(pair: str, side: str, order_type: str, quantity: str, price: str = None) -> dict:
+    params = {
+        "pair": pair,
+        "side": side,
+        "type": order_type,
+        "quantity": quantity,
+        "timestamp": _get_timestamp(),
+    }
+    if order_type == "LIMIT" and price:
+        params["price"] = price
+
+    signature = _sign(params)
+    headers = _headers(signature)
+    headers["Content-Type"] = "application/x-www-form-urlencoded"
+
+    resp = requests.post(
+        f"{BASE_URL}/v3/place_order",
+        data=params,
+        headers=headers,
+    )
+    resp.raise_for_status()
+    return resp.json()
