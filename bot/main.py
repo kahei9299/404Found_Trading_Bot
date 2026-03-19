@@ -14,9 +14,17 @@ Usage:
 import argparse
 import json
 import sys
+from bot.data.market_data import get_market_data_provider
 from bot.execution.client import (
     get_balance, get_ticker, get_exchange_info,
     place_order, query_order, cancel_order, get_pending_count,
+)
+from bot.strategy.backtest import run_precision_sniper_backtest
+from bot.strategy.precision_sniper import (
+    StrategyConfig,
+    build_htf_bias_lookup,
+    generate_precision_sniper_signal,
+    infer_htf_interval,
 )
 
 
@@ -38,15 +46,85 @@ def cmd_balance(args):
 def cmd_price(args):
     pair = args.pair
     data = get_ticker(pair)
-    prices = data.get("Data", {})
+    prices = data.get("Data")
+    if not prices:
+        target = pair or "all pairs"
+        err = data.get("ErrMsg") or "No price data returned."
+        print(f"No price data found for {target}. {err}")
+        return
     print("=== Prices ===")
     for name, info in prices.items():
         print(f"  {name}: ${info['LastPrice']:,.2f}  (bid: {info['MaxBid']}, ask: {info['MinAsk']}, 24h: {info['Change']:+.2%})")
 
 
+def cmd_candles(args):
+    provider = get_market_data_provider()
+    candles = provider.get_candles(
+        pair=args.pair,
+        interval=args.interval,
+        limit=args.limit,
+    )
+    print(f"=== Candles ({len(candles)}) ===")
+    for candle in candles:
+        print(
+            f"  {candle.pair} {candle.interval} "
+            f"open_time={candle.open_time} open={candle.open} high={candle.high} "
+            f"low={candle.low} close={candle.close} volume={candle.volume}"
+        )
+
+
+def cmd_signal(args):
+    provider = get_market_data_provider()
+    config = StrategyConfig(htf_interval=args.htf_interval or infer_htf_interval(args.interval))
+    candles = provider.get_candles(
+        pair=args.pair,
+        interval=args.interval,
+        limit=args.limit,
+    )
+    htf_bias_lookup = {}
+    if config.htf_interval:
+        htf_candles = provider.get_candles(
+            pair=args.pair,
+            interval=config.htf_interval,
+            limit=max(100, args.limit // 2),
+        )
+        htf_bias_lookup = build_htf_bias_lookup(candles, htf_candles, config)
+    signal = generate_precision_sniper_signal(candles, config=config, htf_bias_lookup=htf_bias_lookup)
+    if signal is None:
+        print("No confirmed Precision Sniper signal on the latest closed candle.")
+        return
+    print(json.dumps(signal.to_dict(), indent=2))
+
+
+def cmd_backtest(args):
+    provider = get_market_data_provider()
+    config = StrategyConfig(htf_interval=args.htf_interval or infer_htf_interval(args.interval))
+    candles = provider.get_candles(
+        pair=args.pair,
+        interval=args.interval,
+        limit=args.limit,
+    )
+    htf_candles = []
+    if config.htf_interval:
+        htf_candles = provider.get_candles(
+            pair=args.pair,
+            interval=config.htf_interval,
+            limit=max(100, args.limit // 2),
+        )
+    result = run_precision_sniper_backtest(candles, config=config, htf_candles=htf_candles)
+    output = result.to_dict()
+    if args.trades is not None:
+        output["trade_log"] = output["trade_log"][-args.trades:]
+    print(json.dumps(output, indent=2))
+
+
 def cmd_pairs(args):
     data = get_exchange_info()
-    pairs = data.get("TradePairs", {})
+    pairs = data.get("TradePairs")
+    if not pairs:
+        err = data.get("ErrMsg") or "No trading pairs returned."
+        print(f"Unable to load trading pairs. {err}")
+        return
     print("=== Trading Pairs ===")
     for name, p in pairs.items():
         print(f"  {name}  min_order: {p['MiniOrder']}  price_precision: {p['PricePrecision']}  amount_precision: {p['AmountPrecision']}")
@@ -82,7 +160,7 @@ def cmd_sell(args):
 
 def cmd_orders(args):
     data = query_order(pair=args.pair, pending_only=args.pending)
-    orders = data.get("Orders", [])
+    orders = data.get("Orders") or []
     print(f"=== Orders ({len(orders)}) ===")
     for o in orders:
         print(f"  #{o['OrderID']} {o['Side']} {o['Pair']} | {o['Type']} | qty: {o['Quantity']} | status: {o['Status']}")
@@ -109,6 +187,24 @@ def main():
 
     p_price = sub.add_parser("price", help="Get ticker prices")
     p_price.add_argument("pair", nargs="?", default=None, help="e.g. BTC/USD (omit for all)")
+
+    p_candles = sub.add_parser("candles", help="Get historical candles from the configured market data source")
+    p_candles.add_argument("pair", help="e.g. BTC/USD")
+    p_candles.add_argument("--interval", default="1h", help="e.g. 1m, 15m, 1h, 1d")
+    p_candles.add_argument("--limit", type=int, default=10, help="Number of candles to fetch (1-1000)")
+
+    p_signal = sub.add_parser("signal", help="Evaluate the latest confirmed Precision Sniper signal")
+    p_signal.add_argument("pair", help="e.g. BTC/USD")
+    p_signal.add_argument("--interval", default="1h", help="e.g. 1m, 15m, 1h, 1d")
+    p_signal.add_argument("--limit", type=int, default=250, help="Number of candles to fetch for indicator warmup")
+    p_signal.add_argument("--htf-interval", help="Optional higher timeframe override, e.g. 4h")
+
+    p_backtest = sub.add_parser("backtest", help="Run a simple backtest on Precision Sniper signals")
+    p_backtest.add_argument("pair", help="e.g. BTC/USD")
+    p_backtest.add_argument("--interval", default="1h", help="e.g. 1m, 15m, 1h, 1d")
+    p_backtest.add_argument("--limit", type=int, default=500, help="Number of candles to fetch for the backtest window")
+    p_backtest.add_argument("--trades", type=int, default=10, help="How many most recent trades to include in the output")
+    p_backtest.add_argument("--htf-interval", help="Optional higher timeframe override, e.g. 4h")
 
     sub.add_parser("pairs", help="List available trading pairs")
 
@@ -138,6 +234,9 @@ def main():
     commands = {
         "balance": cmd_balance,
         "price": cmd_price,
+        "candles": cmd_candles,
+        "signal": cmd_signal,
+        "backtest": cmd_backtest,
         "pairs": cmd_pairs,
         "buy": cmd_buy,
         "sell": cmd_sell,
