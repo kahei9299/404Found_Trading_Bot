@@ -1,0 +1,79 @@
+2026-03-21 16:48:02,553 | INFO | ================================================================================
+2026-03-21 16:48:02,554 | INFO | CRYPTOFLUX DYNAMO BACKTEST
+2026-03-21 16:48:02,554 | INFO | ================================================================================
+2026-03-21 16:48:02,554 | INFO | [FETCH] Downloading 60 days of 30m data for BTC/USDT...
+2026-03-21 16:48:04,325 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:48:04,442 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:48:04,542 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:48:04,629 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:48:04,662 | INFO | 
+[START] Backtest: BTC/USDT
+2026-03-21 16:48:04,663 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:48:04,663 | INFO |   Candles: 2880
+2026-03-21 16:48:04,668 | INFO |   [ENTRY] LONG @ $89,952.81 | Qty: 1.3340 | Score: 20 | Regime: compression
+2026-03-21 16:48:11,036 | INFO |   [EXIT] LONG @ $72,531.91 | P&L: $43 (+0.04%) | Score: 40
+2026-03-21 16:48:11,040 | INFO |   [ENTRY] LONG @ $72,531.91 | Qty: 1.6520 | Score: 40 | Regime: compression
+2026-03-21 16:48:13,437 | INFO |   [RESULT] Trades: 499 | Return: +0.42% | Win Rate: 46.5% | Max DD: 0.99%
+2026-03-21 16:48:13,437 | INFO | [FETCH] Downloading 60 days of 30m data for ETH/USDT...
+2026-03-21 16:48:15,196 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:48:15,306 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:48:15,401 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:48:15,491 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:48:15,517 | INFO | 
+[START] Backtest: ETH/USDT
+2026-03-21 16:48:15,517 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:48:15,518 | INFO |   Candles: 2880
+2026-03-21 16:48:17,915 | INFO |   [EXIT] LONG @ $2,089.45 | P&L: $35 (+0.03%) | Score: 23
+2026-03-21 16:48:17,918 | INFO |   [ENTRY] LONG @ $2,089.45 | Qty: 57.2955 | Score: 23 | Regime: expansion
+2026-03-21 16:48:21,961 | INFO |   [EXIT] LONG @ $2,113.95 | P&L: $-448 (-0.37%) | Score: 43
+2026-03-21 16:48:24,413 | INFO |   [RESULT] Trades: 490 | Return: +0.83% | Win Rate: 46.5% | Max DD: 1.44%
+2026-03-21 16:48:24,414 | INFO | [FETCH] Downloading 60 days of 30m data for SOL/USDT...
+2026-03-21 16:48:26,095 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:48:26,206 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:48:26,300 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:48:26,385 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:48:26,409 | INFO | 
+[START] Backtest: SOL/USDT
+2026-03-21 16:48:26,409 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:48:26,409 | INFO |   Candles: 2880
+2026-03-21 16:48:26,413 | INFO |   [ENTRY] LONG @ $129.90 | Qty: 923.7875 | Score: 20 | Regime: compression
+2026-03-21 16:48:27,615 | INFO |   [ENTRY] LONG @ $118.64 | Qty: 1011.4411 | Score: 53 | Regime: expansion
+2026-03-21 16:48:28,789 | INFO |   [EXIT] LONG @ $87.39 | P&L: $165 (+0.14%) | Score: 23
+2026-03-21 16:48:30,561 | INFO |   [ENTRY] LONG @ $84.05 | Qty: 1417.0211 | Score: 25 | Regime: compression
+2026-03-21 16:48:31,146 | INFO |   [ENTRY] LONG @ $78.22 | Qty: 1524.3962 | Score: 65 | Regime: compression
+2026-03-21 16:48:32,973 | INFO |   [EXIT] LONG @ $82.92 | P&L: $-1,149 (-0.96%) | Score: 48
+2026-03-21 16:48:32,976 | INFO |   [ENTRY] LONG @ $82.92 | Qty: 1448.7583 | Score: 28 | Regime: expansion
+2026-03-21 16:48:34,591 | INFO |   [RESULT] Trades: 481 | Return: +0.39% | Win Rate: 46.6% | Max DD: 1.74%
+2026-03-21 16:48:34,591 | INFO | [FETCH] Downloading 60 days of 30m data for XRP/USDT...
+2026-03-21 16:48:36,433 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:48:36,543 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:48:36,639 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:48:36,725 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:48:36,751 | INFO | 
+[START] Backtest: XRP/USDT
+2026-03-21 16:48:36,752 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:48:36,752 | INFO |   Candles: 2880
+2026-03-21 16:48:36,759 | INFO |   [ENTRY] LONG @ $1.95 | Qty: 61636.4477 | Score: 20 | Regime: compression
+2026-03-21 16:48:43,946 | INFO |   [EXIT] LONG @ $1.42 | P&L: $-133 (-0.11%) | Score: 50
+2026-03-21 16:48:43,949 | INFO |   [ENTRY] LONG @ $1.42 | Qty: 83230.2941 | Score: 25 | Regime: compression
+2026-03-21 16:48:45,048 | INFO |   [RESULT] Trades: 385 | Return: -0.89% | Win Rate: 42.6% | Max DD: 1.74%
+2026-03-21 16:48:45,048 | INFO | 
+================================================================================
+2026-03-21 16:48:45,048 | INFO | SUMMARY - ALL PAIRS (60 DAYS)
+2026-03-21 16:48:45,048 | INFO | ================================================================================
+2026-03-21 16:48:45,057 | INFO | 
+  Symbol  Trades  Wins  Losses Win % Return % Profit Factor Max DD % Avg Win Avg Loss    Final $
+BTC/USDT     499   232     267 46.5%   +0.42%          1.04    0.99%    $451    $-376 $1,004,154
+ETH/USDT     490   228     262 46.5%   +0.83%          1.07    1.44%    $539    $-437 $1,008,293
+SOL/USDT     481   224     257 46.6%   +0.39%          1.03    1.74%    $611    $-517 $1,003,920
+XRP/USDT     385   164     221 42.6%   -0.89%          0.92    1.74%    $621    $-501   $991,138
+2026-03-21 16:48:45,062 | INFO | 
+================================================================================
+2026-03-21 16:48:45,062 | INFO | AGGREGATE STATISTICS
+2026-03-21 16:48:45,063 | INFO | ================================================================================
+2026-03-21 16:48:45,063 | INFO | Total Trades: 1855 (848 wins)
+2026-03-21 16:48:45,064 | INFO | Average Win Rate: 45.5%
+2026-03-21 16:48:45,064 | INFO | Average Return: +0.19%
+2026-03-21 16:48:45,065 | INFO | 
+[SUCCESS] Backtest complete!
+2026-03-21 16:48:45,066 | INFO | ================================================================================

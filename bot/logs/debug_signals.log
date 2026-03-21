@@ -1,0 +1,10 @@
+2026-03-21 16:22:21,746 | INFO | Downloading data for BTC/USDT...
+2026-03-21 16:22:24,077 | INFO | Analyzing 2880 candles...
+2026-03-21 16:22:24,112 | INFO | 
+=== SUMMARY ===
+2026-03-21 16:22:24,112 | INFO | Total candles analyzed: 2830
+2026-03-21 16:22:24,112 | INFO | Max score: 0.0 at candle 0
+2026-03-21 16:22:24,112 | INFO | Prices at max score: 91203.33 -> 91116.00
+2026-03-21 16:22:24,112 | INFO | Long signals (score >= 20): 0
+2026-03-21 16:22:24,112 | INFO | Short signals (score >= 20): 0
+2026-03-21 16:22:24,112 | INFO | Entry signals generated (score >= 10.0): Check logs above

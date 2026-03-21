@@ -1,0 +1,63 @@
+2026-03-21 16:05:50,579 | INFO | ================================================================================
+2026-03-21 16:05:50,579 | INFO | COMPREHENSIVE BACKTEST - BINANCE DATA via CCXT
+2026-03-21 16:05:50,580 | INFO | ================================================================================
+2026-03-21 16:05:50,580 | INFO | [FETCH] Downloading 60 days of 30m data for BTC/USDT...
+2026-03-21 16:05:52,421 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:05:52,597 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:05:52,769 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:05:52,856 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:05:52,896 | INFO | 
+[START] Backtest: BTC/USDT
+2026-03-21 16:05:52,907 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:05:52,907 | INFO |   Candles: 2880
+2026-03-21 16:05:52,918 | INFO |   [ENTRY] BTC/USDT @ $87,932.38 | Qty: 2.4415
+2026-03-21 16:05:53,381 | INFO |   [RESULT] Trades: 1 | Return: -4.20% | Win Rate: 0.0%
+2026-03-21 16:05:53,381 | INFO | [FETCH] Downloading 60 days of 30m data for ETH/USDT...
+2026-03-21 16:05:55,457 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:05:55,622 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:05:55,849 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:05:55,932 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:05:55,965 | INFO | 
+[START] Backtest: ETH/USDT
+2026-03-21 16:05:55,969 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:05:55,969 | INFO |   Candles: 2880
+2026-03-21 16:05:56,086 | INFO |   [ENTRY] ETH/USDT @ $2,309.60 | Qty: 44.5251
+2026-03-21 16:05:56,428 | INFO |   [RESULT] Trades: 1 | Return: -0.68% | Win Rate: 0.0%
+2026-03-21 16:05:56,429 | INFO | [FETCH] Downloading 60 days of 30m data for SOL/USDT...
+2026-03-21 16:05:58,288 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:05:58,530 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:05:58,697 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:05:58,790 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:05:58,827 | INFO | 
+[START] Backtest: SOL/USDT
+2026-03-21 16:05:58,828 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:05:58,829 | INFO |   Candles: 2880
+2026-03-21 16:05:58,932 | INFO |   [ENTRY] SOL/USDT @ $100.81 | Qty: 1089.1975
+2026-03-21 16:05:59,253 | INFO |   [RESULT] Trades: 1 | Return: -1.17% | Win Rate: 0.0%
+2026-03-21 16:05:59,253 | INFO | [FETCH] Downloading 60 days of 30m data for XRP/USDT...
+2026-03-21 16:06:01,015 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:06:01,128 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:06:01,224 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:06:01,305 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:06:01,330 | INFO | 
+[START] Backtest: XRP/USDT
+2026-03-21 16:06:01,336 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:06:01,339 | INFO |   Candles: 2880
+2026-03-21 16:06:01,403 | INFO |   [ENTRY] XRP/USDT @ $1.79 | Qty: 85850.0690
+2026-03-21 16:06:01,786 | INFO |   [RESULT] Trades: 1 | Return: -2.96% | Win Rate: 0.0%
+2026-03-21 16:06:01,787 | INFO | 
+================================================================================
+2026-03-21 16:06:01,787 | INFO | SUMMARY - ALL PAIRS
+2026-03-21 16:06:01,787 | INFO | ================================================================================
+2026-03-21 16:06:01,790 | INFO | 
+  Symbol  Trades Return % Win Rate % Avg Win Avg Loss Max DD % Final Equity
+BTC/USDT       1   -4.20%       0.0%      $0 $-42,034    4.20%     $957,966
+ETH/USDT       1   -0.68%       0.0%      $0  $-6,845    0.68%     $993,155
+SOL/USDT       1   -1.17%       0.0%      $0 $-11,709    1.17%     $988,291
+XRP/USDT       1   -2.96%       0.0%      $0 $-29,558    2.96%     $970,442
+2026-03-21 16:06:01,790 | INFO | 
+Average Return: -2.25%
+2026-03-21 16:06:01,790 | INFO | Average Win Rate: 0.0%
+2026-03-21 16:06:01,790 | INFO | 
+[SUCCESS] Backtest complete!
+2026-03-21 16:06:01,790 | INFO | ================================================================================

@@ -1,0 +1,192 @@
+2026-03-21 16:11:53,129 | INFO | ================================================================================
+2026-03-21 16:11:53,129 | INFO | COMPREHENSIVE BACKTEST - BINANCE VISION DATA (DIRECT)
+2026-03-21 16:11:53,129 | INFO | ================================================================================
+2026-03-21 16:11:53,129 | INFO | [INFO] Downloading real historical data from Binance Vision
+2026-03-21 16:11:53,129 | INFO | [INFO] This may take a few minutes on first run (downloading archives)
+
+2026-03-21 16:11:53,129 | INFO | [FETCH] Downloading 12 months of 30m data for BTC/USDT from Binance Vision...
+2026-03-21 16:11:53,129 | INFO |   Downloading 2025-03...
+2026-03-21 16:11:53,319 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:53,319 | INFO |   Downloading 2025-04...
+2026-03-21 16:11:53,744 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:53,744 | INFO |   Downloading 2025-05...
+2026-03-21 16:11:54,026 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:54,027 | INFO |   Downloading 2025-06...
+2026-03-21 16:11:54,437 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:54,437 | INFO |   Downloading 2025-07...
+2026-03-21 16:11:54,843 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:54,845 | INFO |   Downloading 2025-08...
+2026-03-21 16:11:55,248 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:55,249 | INFO |   Downloading 2025-09...
+2026-03-21 16:11:55,395 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:55,395 | INFO |   Downloading 2025-10...
+2026-03-21 16:11:55,676 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:55,678 | INFO |   Downloading 2025-11...
+2026-03-21 16:11:55,836 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:55,840 | INFO |   Downloading 2025-12...
+2026-03-21 16:11:55,981 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:55,984 | INFO |   Downloading 2026-01...
+2026-03-21 16:11:56,393 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:56,399 | INFO |   Downloading 2026-02...
+2026-03-21 16:11:56,785 | INFO |     Downloaded 1344 candles
+2026-03-21 16:11:56,800 | INFO | [SUCCESS] Downloaded 17520 candles (57133-05-09 00:00:00 to 58132-08-18 04:00:00)
+2026-03-21 16:11:56,803 | INFO | 
+[START] Backtest: BTC/USDT
+2026-03-21 16:11:56,804 | ERROR | [ERROR] BTC/USDT: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+2026-03-21 16:11:56,806 | ERROR | Traceback (most recent call last):
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2218, in pandas._libs.tslibs.timestamps.Timestamp.date
+ValueError: year 57133 is out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 289, in main
+    result = run_backtest(symbol, df)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 153, in run_backtest
+    logger.info(f"  Period: {df['timestamp'].min().date()} to {df['timestamp'].max().date()}")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2220, in pandas._libs.tslibs.timestamps.Timestamp.date
+NotImplementedError: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+
+2026-03-21 16:11:56,806 | INFO | [FETCH] Downloading 12 months of 30m data for ETH/USDT from Binance Vision...
+2026-03-21 16:11:56,806 | INFO |   Downloading 2025-03...
+2026-03-21 16:11:57,218 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:57,220 | INFO |   Downloading 2025-04...
+2026-03-21 16:11:57,605 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:57,605 | INFO |   Downloading 2025-05...
+2026-03-21 16:11:58,014 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:58,015 | INFO |   Downloading 2025-06...
+2026-03-21 16:11:58,415 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:58,415 | INFO |   Downloading 2025-07...
+2026-03-21 16:11:58,574 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:58,575 | INFO |   Downloading 2025-08...
+2026-03-21 16:11:59,004 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:59,005 | INFO |   Downloading 2025-09...
+2026-03-21 16:11:59,148 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:59,148 | INFO |   Downloading 2025-10...
+2026-03-21 16:11:59,548 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:59,548 | INFO |   Downloading 2025-11...
+2026-03-21 16:11:59,706 | INFO |     Downloaded 1440 candles
+2026-03-21 16:11:59,707 | INFO |   Downloading 2025-12...
+2026-03-21 16:11:59,975 | INFO |     Downloaded 1488 candles
+2026-03-21 16:11:59,976 | INFO |   Downloading 2026-01...
+2026-03-21 16:12:00,128 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:00,128 | INFO |   Downloading 2026-02...
+2026-03-21 16:12:00,311 | INFO |     Downloaded 1344 candles
+2026-03-21 16:12:00,330 | INFO | [SUCCESS] Downloaded 17520 candles (57133-05-09 00:00:00 to 58132-08-18 04:00:00)
+2026-03-21 16:12:00,331 | INFO | 
+[START] Backtest: ETH/USDT
+2026-03-21 16:12:00,331 | ERROR | [ERROR] ETH/USDT: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+2026-03-21 16:12:00,332 | ERROR | Traceback (most recent call last):
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2218, in pandas._libs.tslibs.timestamps.Timestamp.date
+ValueError: year 57133 is out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 289, in main
+    result = run_backtest(symbol, df)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 153, in run_backtest
+    logger.info(f"  Period: {df['timestamp'].min().date()} to {df['timestamp'].max().date()}")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2220, in pandas._libs.tslibs.timestamps.Timestamp.date
+NotImplementedError: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+
+2026-03-21 16:12:00,332 | INFO | [FETCH] Downloading 12 months of 30m data for SOL/USDT from Binance Vision...
+2026-03-21 16:12:00,332 | INFO |   Downloading 2025-03...
+2026-03-21 16:12:00,492 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:00,492 | INFO |   Downloading 2025-04...
+2026-03-21 16:12:00,659 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:00,660 | INFO |   Downloading 2025-05...
+2026-03-21 16:12:00,882 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:00,883 | INFO |   Downloading 2025-06...
+2026-03-21 16:12:01,276 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:01,276 | INFO |   Downloading 2025-07...
+2026-03-21 16:12:01,665 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:01,666 | INFO |   Downloading 2025-08...
+2026-03-21 16:12:02,076 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:02,077 | INFO |   Downloading 2025-09...
+2026-03-21 16:12:02,474 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:02,474 | INFO |   Downloading 2025-10...
+2026-03-21 16:12:02,819 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:02,819 | INFO |   Downloading 2025-11...
+2026-03-21 16:12:03,050 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:03,050 | INFO |   Downloading 2025-12...
+2026-03-21 16:12:03,203 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:03,203 | INFO |   Downloading 2026-01...
+2026-03-21 16:12:03,418 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:03,421 | INFO |   Downloading 2026-02...
+2026-03-21 16:12:03,625 | INFO |     Downloaded 1344 candles
+2026-03-21 16:12:03,637 | INFO | [SUCCESS] Downloaded 17520 candles (57133-05-09 00:00:00 to 58132-08-18 04:00:00)
+2026-03-21 16:12:03,639 | INFO | 
+[START] Backtest: SOL/USDT
+2026-03-21 16:12:03,639 | ERROR | [ERROR] SOL/USDT: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+2026-03-21 16:12:03,641 | ERROR | Traceback (most recent call last):
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2218, in pandas._libs.tslibs.timestamps.Timestamp.date
+ValueError: year 57133 is out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 289, in main
+    result = run_backtest(symbol, df)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 153, in run_backtest
+    logger.info(f"  Period: {df['timestamp'].min().date()} to {df['timestamp'].max().date()}")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2220, in pandas._libs.tslibs.timestamps.Timestamp.date
+NotImplementedError: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+
+2026-03-21 16:12:03,643 | INFO | [FETCH] Downloading 12 months of 30m data for XRP/USDT from Binance Vision...
+2026-03-21 16:12:03,643 | INFO |   Downloading 2025-03...
+2026-03-21 16:12:03,796 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:03,798 | INFO |   Downloading 2025-04...
+2026-03-21 16:12:03,996 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:03,996 | INFO |   Downloading 2025-05...
+2026-03-21 16:12:04,157 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:04,157 | INFO |   Downloading 2025-06...
+2026-03-21 16:12:04,366 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:04,367 | INFO |   Downloading 2025-07...
+2026-03-21 16:12:04,621 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:04,621 | INFO |   Downloading 2025-08...
+2026-03-21 16:12:04,866 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:04,866 | INFO |   Downloading 2025-09...
+2026-03-21 16:12:05,021 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:05,023 | INFO |   Downloading 2025-10...
+2026-03-21 16:12:05,417 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:05,418 | INFO |   Downloading 2025-11...
+2026-03-21 16:12:05,675 | INFO |     Downloaded 1440 candles
+2026-03-21 16:12:05,676 | INFO |   Downloading 2025-12...
+2026-03-21 16:12:05,864 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:05,865 | INFO |   Downloading 2026-01...
+2026-03-21 16:12:06,102 | INFO |     Downloaded 1488 candles
+2026-03-21 16:12:06,102 | INFO |   Downloading 2026-02...
+2026-03-21 16:12:06,266 | INFO |     Downloaded 1344 candles
+2026-03-21 16:12:06,272 | INFO | [SUCCESS] Downloaded 17520 candles (57133-05-09 00:00:00 to 58132-08-18 04:00:00)
+2026-03-21 16:12:06,275 | INFO | 
+[START] Backtest: XRP/USDT
+2026-03-21 16:12:06,277 | ERROR | [ERROR] XRP/USDT: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+2026-03-21 16:12:06,279 | ERROR | Traceback (most recent call last):
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2218, in pandas._libs.tslibs.timestamps.Timestamp.date
+ValueError: year 57133 is out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 289, in main
+    result = run_backtest(symbol, df)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jayde\tradingbot\404Found_Trading_Bot\bot\backtest\backtest_binance_vision_direct.py", line 153, in run_backtest
+    logger.info(f"  Period: {df['timestamp'].min().date()} to {df['timestamp'].max().date()}")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 2220, in pandas._libs.tslibs.timestamps.Timestamp.date
+NotImplementedError: date not yet supported on Timestamps which are outside the range of Python's standard library. 
+
+2026-03-21 16:12:06,279 | INFO | 
+================================================================================
+2026-03-21 16:12:06,279 | INFO | SUMMARY - ALL PAIRS (12 MONTHS OF DATA)
+2026-03-21 16:12:06,279 | INFO | ================================================================================
+2026-03-21 16:12:06,279 | ERROR | [ERROR] No successful backtests
+2026-03-21 16:12:06,279 | INFO | ================================================================================

@@ -1,0 +1,68 @@
+2026-03-21 16:53:03,922 | INFO | ================================================================================
+2026-03-21 16:53:03,923 | INFO | CRYPTOFLUX DYNAMO BACKTEST - STRICT MODE (High-Confidence Signals Only)
+2026-03-21 16:53:03,923 | INFO | ================================================================================
+2026-03-21 16:53:03,923 | INFO | Configuration:
+2026-03-21 16:53:03,923 | INFO |   - Signal threshold: 50.0 (increased from 20.0)
+2026-03-21 16:53:03,923 | INFO |   - Confidence filter: Only 'strong' or 'medium'
+2026-03-21 16:53:03,923 | INFO |   - Daily trade limit: 10 per day (enforced)
+2026-03-21 16:53:03,923 | INFO |   - Expected trades: ~300 over 60 days
+2026-03-21 16:53:03,923 | INFO | ================================================================================
+2026-03-21 16:53:03,923 | INFO | [FETCH] Downloading 60 days of 30m data for BTC/USDT...
+2026-03-21 16:53:05,760 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:53:05,860 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:53:05,962 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:53:06,045 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:53:06,072 | INFO | 
+[START] Backtest: BTC/USDT (STRICT MODE)
+2026-03-21 16:53:06,073 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:53:06,073 | INFO |   Candles: 2880
+2026-03-21 16:53:06,320 | INFO |   [ENTRY #1] LONG @ $90,981.99 | Score: 70 | Confidence: medium | Regime: compression
+2026-03-21 16:53:14,960 | INFO |   [RESULT] Trades: 42 | Return: +0.35% | Win Rate: 45.2% | Max DD: 0.00%
+2026-03-21 16:53:14,960 | INFO | [FETCH] Downloading 60 days of 30m data for ETH/USDT...
+2026-03-21 16:53:16,768 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:53:16,874 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:53:16,971 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:53:17,052 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:53:17,080 | INFO | 
+[START] Backtest: ETH/USDT (STRICT MODE)
+2026-03-21 16:53:17,081 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:53:17,081 | INFO |   Candles: 2880
+2026-03-21 16:53:17,296 | INFO |   [ENTRY #1] LONG @ $2,987.51 | Score: 70 | Confidence: medium | Regime: compression
+2026-03-21 16:53:25,685 | INFO |   [RESULT] Trades: 37 | Return: +1.14% | Win Rate: 40.5% | Max DD: 0.00%
+2026-03-21 16:53:25,685 | INFO | [FETCH] Downloading 60 days of 30m data for SOL/USDT...
+2026-03-21 16:53:27,636 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:53:27,733 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:53:27,838 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:53:27,924 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:53:27,952 | INFO | 
+[START] Backtest: SOL/USDT (STRICT MODE)
+2026-03-21 16:53:27,953 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:53:27,953 | INFO |   Candles: 2880
+2026-03-21 16:53:28,180 | INFO |   [ENTRY #1] LONG @ $128.45 | Score: 70 | Confidence: medium | Regime: compression
+2026-03-21 16:53:36,530 | INFO |   [RESULT] Trades: 39 | Return: +1.76% | Win Rate: 43.6% | Max DD: 0.00%
+2026-03-21 16:53:36,531 | INFO | [FETCH] Downloading 60 days of 30m data for XRP/USDT...
+2026-03-21 16:53:38,428 | INFO |   Downloaded 1000 candles so far...
+2026-03-21 16:53:38,529 | INFO |   Downloaded 2000 candles so far...
+2026-03-21 16:53:38,628 | INFO |   Downloaded 2880 candles so far...
+2026-03-21 16:53:38,710 | INFO | [SUCCESS] Downloaded 2880 candles (2026-01-20 to 2026-03-21)
+2026-03-21 16:53:38,734 | INFO | 
+[START] Backtest: XRP/USDT (STRICT MODE)
+2026-03-21 16:53:38,735 | INFO |   Period: 2026-01-20 to 2026-03-21
+2026-03-21 16:53:38,735 | INFO |   Candles: 2880
+2026-03-21 16:53:38,936 | INFO |   [ENTRY #1] LONG @ $1.96 | Score: 70 | Confidence: medium | Regime: compression
+2026-03-21 16:53:47,294 | INFO |   [RESULT] Trades: 48 | Return: -0.08% | Win Rate: 39.6% | Max DD: 0.00%
+2026-03-21 16:53:47,294 | INFO | 
+================================================================================
+2026-03-21 16:53:47,294 | INFO | SUMMARY - ALL PAIRS (60 DAYS)
+2026-03-21 16:53:47,294 | INFO | ================================================================================
+2026-03-21 16:53:47,294 | INFO | 
+================================================================================
+2026-03-21 16:53:47,294 | INFO | AGGREGATE STATISTICS
+2026-03-21 16:53:47,294 | INFO | ================================================================================
+2026-03-21 16:53:47,294 | INFO | Total Trades: 166 (70 wins)
+2026-03-21 16:53:47,294 | INFO | Average Win Rate: 42.2%
+2026-03-21 16:53:47,294 | INFO | Average Return: +0.79%
+2026-03-21 16:53:47,294 | INFO | Average Max Drawdown: 0.00%
+2026-03-21 16:53:47,294 | INFO | 
+[SUCCESS] Strict backtest complete!
+2026-03-21 16:53:47,294 | INFO | ================================================================================

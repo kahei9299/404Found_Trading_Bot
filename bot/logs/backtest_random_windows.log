@@ -1,0 +1,124 @@
+2026-03-21 17:12:43,230 | INFO | ==========================================================================================
+2026-03-21 17:12:43,231 | INFO | CRYPTOFLUX DYNAMO - RANDOM 10-DAY WINDOW BACKTEST
+2026-03-21 17:12:43,231 | INFO | ==========================================================================================
+2026-03-21 17:12:43,231 | INFO | Configuration:
+2026-03-21 17:12:43,231 | INFO |   - Testing period: Past 365 days
+2026-03-21 17:12:43,231 | INFO |   - Window size: 10 days
+2026-03-21 17:12:43,231 | INFO |   - Number of windows: 36 (randomly selected, non-overlapping)
+2026-03-21 17:12:43,231 | INFO |   - Signal threshold: 50.0 (strict mode)
+2026-03-21 17:12:43,231 | INFO |   - Symbols: BTC/USDT, ETH/USDT, SOL/USDT, XRP/USDT
+2026-03-21 17:12:43,231 | INFO | ==========================================================================================
+2026-03-21 17:12:43,231 | INFO | 
+[SYMBOL] BTC/USDT
+2026-03-21 17:12:43,231 | INFO | [FETCH] Downloading 365 days of 30m data for BTC/USDT...
+2026-03-21 17:12:47,971 | INFO | [SUCCESS] Downloaded 17520 candles (2025-03-21 to 2026-03-21)
+2026-03-21 17:12:48,024 | INFO | [INFO] Running 36 random 10-day windows...
+2026-03-21 17:12:54,687 | INFO |   Progress: 6/36 windows completed
+2026-03-21 17:13:01,435 | INFO |   Progress: 12/36 windows completed
+2026-03-21 17:13:08,378 | INFO |   Progress: 18/36 windows completed
+2026-03-21 17:13:15,230 | INFO |   Progress: 24/36 windows completed
+2026-03-21 17:13:22,076 | INFO |   Progress: 30/36 windows completed
+2026-03-21 17:13:28,678 | INFO |   Progress: 36/36 windows completed
+2026-03-21 17:13:28,678 | INFO | [COMPLETE] BTC/USDT finished (36 windows)
+2026-03-21 17:13:28,678 | INFO | 
+[SYMBOL] ETH/USDT
+2026-03-21 17:13:28,678 | INFO | [FETCH] Downloading 365 days of 30m data for ETH/USDT...
+2026-03-21 17:13:34,067 | INFO | [SUCCESS] Downloaded 17520 candles (2025-03-21 to 2026-03-21)
+2026-03-21 17:13:34,102 | INFO | [INFO] Running 36 random 10-day windows...
+2026-03-21 17:13:40,735 | INFO |   Progress: 6/36 windows completed
+2026-03-21 17:13:47,399 | INFO |   Progress: 12/36 windows completed
+2026-03-21 17:13:54,101 | INFO |   Progress: 18/36 windows completed
+2026-03-21 17:14:00,610 | INFO |   Progress: 24/36 windows completed
+2026-03-21 17:14:07,164 | INFO |   Progress: 30/36 windows completed
+2026-03-21 17:14:13,823 | INFO |   Progress: 36/36 windows completed
+2026-03-21 17:14:13,823 | INFO | [COMPLETE] ETH/USDT finished (36 windows)
+2026-03-21 17:14:13,823 | INFO | 
+[SYMBOL] SOL/USDT
+2026-03-21 17:14:13,823 | INFO | [FETCH] Downloading 365 days of 30m data for SOL/USDT...
+2026-03-21 17:14:18,684 | INFO | [SUCCESS] Downloaded 17520 candles (2025-03-21 to 2026-03-21)
+2026-03-21 17:14:18,725 | INFO | [INFO] Running 36 random 10-day windows...
+2026-03-21 17:14:25,430 | INFO |   Progress: 6/36 windows completed
+2026-03-21 17:14:32,411 | INFO |   Progress: 12/36 windows completed
+2026-03-21 17:14:39,006 | INFO |   Progress: 18/36 windows completed
+2026-03-21 17:14:45,788 | INFO |   Progress: 24/36 windows completed
+2026-03-21 17:14:52,679 | INFO |   Progress: 30/36 windows completed
+2026-03-21 17:14:59,705 | INFO |   Progress: 36/36 windows completed
+2026-03-21 17:14:59,706 | INFO | [COMPLETE] SOL/USDT finished (36 windows)
+2026-03-21 17:14:59,706 | INFO | 
+[SYMBOL] XRP/USDT
+2026-03-21 17:14:59,706 | INFO | [FETCH] Downloading 365 days of 30m data for XRP/USDT...
+2026-03-21 17:15:05,430 | INFO | [SUCCESS] Downloaded 17520 candles (2025-03-21 to 2026-03-21)
+2026-03-21 17:15:05,460 | INFO | [INFO] Running 36 random 10-day windows...
+2026-03-21 17:15:12,089 | INFO |   Progress: 6/36 windows completed
+2026-03-21 17:15:18,967 | INFO |   Progress: 12/36 windows completed
+2026-03-21 17:15:25,713 | INFO |   Progress: 18/36 windows completed
+2026-03-21 17:15:32,336 | INFO |   Progress: 24/36 windows completed
+2026-03-21 17:15:39,089 | INFO |   Progress: 30/36 windows completed
+2026-03-21 17:15:45,816 | INFO |   Progress: 36/36 windows completed
+2026-03-21 17:15:45,816 | INFO | [COMPLETE] XRP/USDT finished (36 windows)
+2026-03-21 17:15:45,816 | INFO | 
+==========================================================================================
+2026-03-21 17:15:45,816 | INFO | DETAILED RESULTS BY SYMBOL
+2026-03-21 17:15:45,816 | INFO | ==========================================================================================
+2026-03-21 17:15:45,816 | INFO | 
+BTC/USDT:
+2026-03-21 17:15:45,816 | INFO |   Windows tested: 36
+2026-03-21 17:15:45,816 | INFO |   Successful windows: 36
+2026-03-21 17:15:45,816 | INFO |   Total trades across all windows: 241
+2026-03-21 17:15:45,816 | INFO |   Total wins: 100
+2026-03-21 17:15:45,816 | INFO |   TOTAL PROFIT (36 windows): $9,174.60
+2026-03-21 17:15:45,816 | INFO |   Average profit per window: $254.85
+2026-03-21 17:15:45,816 | INFO |   Average return per window: +0.03%
+2026-03-21 17:15:45,816 | INFO |   Average win rate: 43.6%
+2026-03-21 17:15:45,816 | INFO |   Profitable windows: 20/36 (55.6%)
+2026-03-21 17:15:45,816 | INFO | 
+ETH/USDT:
+2026-03-21 17:15:45,816 | INFO |   Windows tested: 36
+2026-03-21 17:15:45,816 | INFO |   Successful windows: 36
+2026-03-21 17:15:45,816 | INFO |   Total trades across all windows: 219
+2026-03-21 17:15:45,816 | INFO |   Total wins: 82
+2026-03-21 17:15:45,816 | INFO |   TOTAL PROFIT (36 windows): $11,433.74
+2026-03-21 17:15:45,816 | INFO |   Average profit per window: $317.60
+2026-03-21 17:15:45,816 | INFO |   Average return per window: +0.03%
+2026-03-21 17:15:45,816 | INFO |   Average win rate: 37.6%
+2026-03-21 17:15:45,816 | INFO |   Profitable windows: 19/36 (52.8%)
+2026-03-21 17:15:45,817 | INFO | 
+SOL/USDT:
+2026-03-21 17:15:45,817 | INFO |   Windows tested: 36
+2026-03-21 17:15:45,817 | INFO |   Successful windows: 36
+2026-03-21 17:15:45,817 | INFO |   Total trades across all windows: 236
+2026-03-21 17:15:45,817 | INFO |   Total wins: 83
+2026-03-21 17:15:45,817 | INFO |   TOTAL PROFIT (36 windows): $-29,270.50
+2026-03-21 17:15:45,817 | INFO |   Average profit per window: $-813.07
+2026-03-21 17:15:45,817 | INFO |   Average return per window: -0.08%
+2026-03-21 17:15:45,817 | INFO |   Average win rate: 38.0%
+2026-03-21 17:15:45,817 | INFO |   Profitable windows: 17/36 (47.2%)
+2026-03-21 17:15:45,817 | INFO | 
+XRP/USDT:
+2026-03-21 17:15:45,817 | INFO |   Windows tested: 36
+2026-03-21 17:15:45,817 | INFO |   Successful windows: 36
+2026-03-21 17:15:45,817 | INFO |   Total trades across all windows: 222
+2026-03-21 17:15:45,817 | INFO |   Total wins: 90
+2026-03-21 17:15:45,817 | INFO |   TOTAL PROFIT (36 windows): $18,402.53
+2026-03-21 17:15:45,817 | INFO |   Average profit per window: $511.18
+2026-03-21 17:15:45,817 | INFO |   Average return per window: +0.05%
+2026-03-21 17:15:45,817 | INFO |   Average win rate: 38.6%
+2026-03-21 17:15:45,817 | INFO |   Profitable windows: 20/36 (55.6%)
+2026-03-21 17:15:45,817 | INFO | 
+==========================================================================================
+2026-03-21 17:15:45,817 | INFO | AGGREGATE STATISTICS (ALL SYMBOLS & ALL WINDOWS)
+2026-03-21 17:15:45,817 | INFO | ==========================================================================================
+2026-03-21 17:15:45,817 | INFO | Total windows tested: 144
+2026-03-21 17:15:45,817 | INFO | Successful windows: 144
+2026-03-21 17:15:45,817 | INFO | Total trades: 918
+2026-03-21 17:15:45,818 | INFO | Total wins: 355
+2026-03-21 17:15:45,818 | INFO | 
+TOTAL PROFIT (ALL 144 WINDOWS): $9,740.38
+2026-03-21 17:15:45,818 | INFO | Average profit per window: $67.64
+2026-03-21 17:15:45,818 | INFO | 
+Average return per window (all symbols): +0.01%
+2026-03-21 17:15:45,818 | INFO | Profitable windows: 76/144 (52.8%)
+2026-03-21 17:15:45,818 | INFO | Win rate (trades): 38.7%
+2026-03-21 17:15:45,818 | INFO | 
+[SUCCESS] Random window backtest complete!
+2026-03-21 17:15:45,818 | INFO | ==========================================================================================
