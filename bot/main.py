@@ -14,11 +14,30 @@ Usage:
 import argparse
 import json
 import sys
+from bot.config.settings import (
+    BOT_CANDLE_LIMIT,
+    BOT_DB_PATH,
+    BOT_INTERVAL,
+    BOT_MAX_DAILY_LOSS,
+    BOT_MAX_OPEN_POSITIONS,
+    BOT_MAX_TRADE_NOTIONAL,
+    BOT_MIN_BALANCE,
+    BOT_MODE,
+    BOT_PAIRS,
+    BOT_POLL_SECONDS,
+)
 from bot.data.market_data import get_market_data_provider
+from bot.execution.execution import PaperExecutionAdapter
 from bot.execution.client import (
     get_balance, get_ticker, get_exchange_info,
     place_order, query_order, cancel_order, get_pending_count,
 )
+from bot.execution.order_manager import OrderManager
+from bot.risk.risk_manager import RiskManager
+from bot.runtime.models import BotConfig, TradingPairConfig
+from bot.runtime.runner import BotRunner
+from bot.runtime.service import TradingService
+from bot.storage.sqlite import SQLiteStorage
 from bot.strategy.backtest import run_precision_sniper_backtest
 from bot.strategy.precision_sniper import (
     StrategyConfig,
@@ -179,6 +198,30 @@ def cmd_cancel(args):
         print(f"Failed: {result.get('ErrMsg')}")
 
 
+def cmd_run(args):
+    provider = get_market_data_provider()
+    storage = SQLiteStorage(args.db_path)
+    storage.init_db()
+    config = BotConfig(
+        mode=BOT_MODE,
+        poll_seconds=args.poll_seconds,
+        db_path=args.db_path,
+        pairs=tuple(
+            TradingPairConfig(pair=pair, interval=args.interval, candle_limit=args.limit)
+            for pair in args.pairs
+        ),
+        max_trade_notional=args.max_trade_notional,
+        max_daily_loss=args.max_daily_loss,
+        max_open_positions=args.max_open_positions,
+        min_balance=args.min_balance,
+    )
+    order_manager = OrderManager(PaperExecutionAdapter(), storage)
+    risk_manager = RiskManager(config)
+    service = TradingService(config, provider, storage, order_manager, risk_manager)
+    runner = BotRunner(service, poll_seconds=args.poll_seconds)
+    runner.run(once=args.once)
+
+
 def main():
     parser = argparse.ArgumentParser(prog="bot", description="Roostoo Trading Bot")
     sub = parser.add_subparsers(dest="command")
@@ -205,6 +248,18 @@ def main():
     p_backtest.add_argument("--limit", type=int, default=500, help="Number of candles to fetch for the backtest window")
     p_backtest.add_argument("--trades", type=int, default=10, help="How many most recent trades to include in the output")
     p_backtest.add_argument("--htf-interval", help="Optional higher timeframe override, e.g. 4h")
+
+    p_run = sub.add_parser("run", help="Run the autonomous paper trading loop")
+    p_run.add_argument("--pairs", nargs="+", default=list(BOT_PAIRS), help="Trading pairs to run, e.g. BTC/USD ETH/USD")
+    p_run.add_argument("--interval", default=BOT_INTERVAL, help="Base interval for all configured pairs")
+    p_run.add_argument("--limit", type=int, default=BOT_CANDLE_LIMIT, help="Number of candles fetched per cycle")
+    p_run.add_argument("--poll-seconds", type=int, default=BOT_POLL_SECONDS, help="Seconds to sleep between cycles")
+    p_run.add_argument("--db-path", default=BOT_DB_PATH, help="Path to the local SQLite state database")
+    p_run.add_argument("--max-trade-notional", type=float, default=BOT_MAX_TRADE_NOTIONAL, help="Maximum notional per trade")
+    p_run.add_argument("--max-daily-loss", type=float, default=BOT_MAX_DAILY_LOSS, help="Maximum daily realized loss before trading stops")
+    p_run.add_argument("--max-open-positions", type=int, default=BOT_MAX_OPEN_POSITIONS, help="Maximum simultaneous open positions")
+    p_run.add_argument("--min-balance", type=float, default=BOT_MIN_BALANCE, help="Minimum required available balance")
+    p_run.add_argument("--once", action="store_true", help="Run a single cycle and exit")
 
     sub.add_parser("pairs", help="List available trading pairs")
 
@@ -237,6 +292,7 @@ def main():
         "candles": cmd_candles,
         "signal": cmd_signal,
         "backtest": cmd_backtest,
+        "run": cmd_run,
         "pairs": cmd_pairs,
         "buy": cmd_buy,
         "sell": cmd_sell,
